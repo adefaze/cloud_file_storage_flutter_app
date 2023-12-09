@@ -22,9 +22,11 @@ class _TeamFolderPageState extends State<TeamFolderPage> {
           height: 172,
           decoration: BoxDecoration(color: Colors.blue[900]),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
                 mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   Text(
                     'Wakanda',
@@ -44,14 +46,37 @@ class _TeamFolderPageState extends State<TeamFolderPage> {
               ),
               Row(
                 children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.search),
+                  // search icon
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.black.withOpacity(.1),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.search,
+                        size: 28,
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.notifications),
-                  )
+                  const SizedBox(
+                    width: 12,
+                  ),
+                  // notification icon
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Colors.black.withOpacity(.1),
+                        borderRadius: BorderRadius.circular(15)),
+                    child: IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.notifications,
+                          size: 28,
+                          color: Colors.white,
+                        )),
+                  ),
                 ],
               ),
             ],
