@@ -167,32 +167,84 @@ class _TeamFolderPageState extends State<TeamFolderPage> {
                     SizedBox(
                       width: availableScreenSize * .03,
                     ),
-                    buildFileColumn('figma', 'design', '.fig'),
+                    buildFileColumn('photoshop', 'photoshop', '.psd'),
                     SizedBox(
                       width: availableScreenSize * .03,
                     ),
-                    buildFileColumn('figma', 'design', '.fig'),
+                    buildFileColumn('illustrator', 'illustrator', '.ai'),
                     SizedBox(
                       width: availableScreenSize * .03,
                     ),
-                    buildFileColumn('figma', 'design', '.fig'),
+                    buildFileColumn('canva', 'canva', '.canva'),
                   ],
                 ),
               ),
-              const Divider(height: 20),
+              const Divider(height: 60),
 
               // projects section
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text('Projects'),
-                  const Text('Create new'),
+                children: const [
+                  Text(
+                    'Projects',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    'Create new',
+                    style: TextStyle(
+                        color: Colors.blue,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold),
+                  ),
                 ],
               ),
+              const SizedBox(height: 20),
+              buildProjectRow('Landing pages'),
+              buildProjectRow('Mobile apps'),
+              buildProjectRow('Animations'),
+              buildProjectRow('Other'),
             ],
           ),
         ),
       ]),
+    );
+  }
+
+  Container buildProjectRow(String foldername) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 8),
+      height: 65,
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      decoration: BoxDecoration(
+          color: Colors.grey[200], borderRadius: BorderRadius.circular(12)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              Icon(
+                Icons.folder,
+                color: Colors.blue[200],
+              ),
+              const SizedBox(width: 12),
+              Text(
+                foldername,
+                style: const TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+            ],
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.more_vert_rounded),
+          ),
+        ],
+      ),
     );
   }
 
