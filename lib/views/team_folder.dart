@@ -136,8 +136,98 @@ class _TeamFolderPageState extends State<TeamFolderPage> {
               buildFileSizeChart('', Colors.grey[200], .23),
             ],
           ),
-        )
+        ),
+        const SizedBox(
+          height: 15,
+        ),
+        const Divider(
+          height: 20,
+        ),
+
+        // scrollable section
+        Expanded(
+          child: ListView(
+            padding: const EdgeInsets.all(25),
+            children: [
+              const Text(
+                'Frequently updated',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    buildFileColumn('figma', 'design', '.fig'),
+                    SizedBox(
+                      width: availableScreenSize * .03,
+                    ),
+                    buildFileColumn('figma', 'design', '.fig'),
+                    SizedBox(
+                      width: availableScreenSize * .03,
+                    ),
+                    buildFileColumn('figma', 'design', '.fig'),
+                    SizedBox(
+                      width: availableScreenSize * .03,
+                    ),
+                    buildFileColumn('figma', 'design', '.fig'),
+                  ],
+                ),
+              ),
+              const Divider(height: 20),
+
+              // projects section
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text('Projects'),
+                  const Text('Create new'),
+                ],
+              ),
+            ],
+          ),
+        ),
       ]),
+    );
+  }
+
+  Column buildFileColumn(String image, String filename, String extension) {
+    return Column(
+      children: [
+        Container(
+          width: availableScreenSize * .31,
+          decoration: BoxDecoration(
+              color: Colors.grey[200], borderRadius: BorderRadius.circular(20)),
+          padding: const EdgeInsets.all(30),
+          height: 100,
+          child: Image.asset('assets/images/$image.png'),
+        ),
+        const SizedBox(
+          height: 15,
+        ),
+        RichText(
+          text: TextSpan(
+              text: filename,
+              style: const TextStyle(
+                color: Colors.black,
+                fontSize: 14,
+              ),
+              children: [
+                TextSpan(
+                    text: extension,
+                    style: const TextStyle(
+                      color: Colors.grey,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w300,
+                    ))
+              ]),
+        ),
+      ],
     );
   }
 
